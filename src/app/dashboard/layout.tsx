@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation';
 
 import { verifyToken } from '@/lib/auth';
 import clientPromise from '@/lib/db';
-import Sidebar from '@/components/ui/sidebar';
+import Sidebar from '@/components/sidebar';
 
 export default async function DashboardLayout({
   children,

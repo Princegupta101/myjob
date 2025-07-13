@@ -1,5 +1,5 @@
 
-# myjobb AI Full Stack Developer Intern Assignment
+# Myjobb AI Full Stack Developer Intern Assignment
 
 This is a full-stack dashboard application built with Next.js, TypeScript, Node.js, and MongoDB as part of the myjobb AI Full Stack Developer Intern assignment.
 
@@ -18,15 +18,15 @@ This is a full-stack dashboard application built with Next.js, TypeScript, Node.
 
 - Node.js (v18 or higher)
 - MongoDB
-- Gmail account for sending emails (or configure another email service)
+- Resend
 
 ## Setup Instructions
 
 1. **Clone the Repository**
 
    ```bash
-   git clone <repository-url>
-   cd myjobb-ai-assignment
+   git clone git@github.com:Princegupta101/myjob.git
+   cd myjob
    ```
 
 2. **Install Dependencies**
@@ -42,11 +42,12 @@ This is a full-stack dashboard application built with Next.js, TypeScript, Node.
    ```env
    MONGODB_URI=mongodb://localhost:27017/myjobb-ai
    JWT_SECRET=your_jwt_secret
-   EMAIL_USER=your_email@example.com
-   EMAIL_PASS=your_email_password
+   RESEND_API_KEY=
    ```
 
-   Replace `your_jwt_secret`, `your_email@example.com`, and `your_email_password` with your actual values.
+Replace <username>, <password>, and <cluster> with your MongoDB Atlas credentials or use mongodb://localhost:27017/myjobb-ai for a local MongoDB instance.
+Generate a secure JWT_SECRET (e.g., a random 32-character string).
+Obtain a RESEND_API_KEY from Resend.
 
 4. **Run MongoDB**
 
@@ -78,15 +79,3 @@ The application is deployed on Vercel. Access it at: [Live URL]
 2. **Verify OTP**: Enter the OTP sent to your email. You can resend the OTP if needed.
 3. **Dashboard**: Upon successful verification, you'll be redirected to the dashboard displaying product data and analytics.
 
-## Submission
-
-- GitHub Repository: [Repository URL]
-- Live URL: [Live URL]
-- Email: Send the above links to careers@myjobb.ai with subject "ASSIGNMENT SUBMISSION: Full Stack Developer Intern"
-
-## Notes
-
-- The application uses TailwindCSS for responsive styling.
-- Emails are designed to be professional and mobile-responsive.
-- The dashboard includes a bonus analytics visualization using Recharts.
-- Error handling and edge cases are considered throughout the application.

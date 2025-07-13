@@ -1,10 +1,30 @@
 'use client';
 
+import { cva } from 'class-variance-authority';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
+// Button Variants
+const buttonVariants = cva(
+  'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none',
+  {
+    variants: {
+      variant: {
+        default: 'bg-indigo-600 text-gray-100 hover:bg-indigo-700',
+        outline: 'border border-primary text-primary hover:bg-primary/10',
+      },
+      size: {
+        default: 'h-10 py-2 px-4',
+        sm: 'h-9 px-3',
+        lg: 'h-11 px-8',
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
+      size: 'default',
+    },
+  }
+);
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -31,7 +51,7 @@ export default function Login() {
         setError(data.error || 'Failed to send OTP');
       }
     } catch (err) {
-      setError('An error occurred. Please try again.',);
+      setError('An error occurred. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -46,19 +66,23 @@ export default function Login() {
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
               Email
             </label>
-            <Input
+            <input
               id="email"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="mt-1"
+              className="mt-1 flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:cursor-not-allowed disabled:opacity-50"
             />
           </div>
           {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
-          <Button type="submit" disabled={loading} className="w-full">
+          <button
+            className={buttonVariants({ variant: 'default', size: 'default', className: 'w-full' })}
+            type="submit"
+            disabled={loading}
+          >
             {loading ? 'Sending...' : 'Send OTP'}
-          </Button>
+          </button>
         </form>
       </div>
     </div>
