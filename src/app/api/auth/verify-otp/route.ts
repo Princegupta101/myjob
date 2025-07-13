@@ -27,8 +27,6 @@ export async function POST(request: Request) {
     if (!isValid) {
       return NextResponse.json({ error: 'Invalid OTP' }, { status: 400 });
     }
-
-    // Update user to set verified: true and remove otp fields
     await db.collection('users').updateOne(
       { email },
       { 
@@ -44,13 +42,12 @@ export async function POST(request: Request) {
 
     const token = generateToken({ email });
 
-    // Set token in HTTP-only cookie
     const response = NextResponse.json({ token });
     response.cookies.set('token', token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict',
-      maxAge: 24 * 60 * 60, // 1 day
+      maxAge: 24 * 60 * 60, 
       path: '/',
     });
 

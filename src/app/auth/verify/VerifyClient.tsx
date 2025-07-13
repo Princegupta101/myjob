@@ -88,7 +88,7 @@ export default function VerifyClient() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+      <div className="bg-white p-8 rounded-lg  w-full max-w-md">
         <h1 className="text-2xl font-bold mb-6 text-primary">Verify OTP</h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">

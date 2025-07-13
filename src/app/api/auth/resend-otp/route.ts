@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     const db = client.db();
     const otp = generateOtp();
     const hashedOtp = await hashOtp(otp);
-    const otpExpires = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
+    const otpExpires = new Date(Date.now() + 10 * 60 * 1000); 
 
     await db.collection('users').updateOne(
       { email },
